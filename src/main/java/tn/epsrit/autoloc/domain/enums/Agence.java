@@ -28,5 +28,5 @@ public class Agence {
     List<Employe> employes = new ArrayList<>();
 
     @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
-    List<tn.esprit.autoloc.domain.Vehicule> vehicules = new ArrayList<>();
+    List<Vehicule> vehicules = new ArrayList<>();
 }

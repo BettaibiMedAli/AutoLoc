@@ -18,6 +18,9 @@ public class ContratServiceImpl implements IContratService {
             throw new IllegalArgumentException(
                     "Un nouveau contrat ne doit pas avoir d'identifiant");
         }
+        if (contrat.getPaiements() != null) {
+            contrat.getPaiements().forEach(paiement -> paiement.setContrat(contrat));
+        }
         return contratRepository.save(contrat);
     }
     @Override
@@ -31,9 +34,15 @@ public class ContratServiceImpl implements IContratService {
     @Override
     public Contrat update(Long id, Contrat contrat) {
         Contrat existant = findById(id);
+        existant.setDateSignature(contrat.getDateSignature());
         existant.setMontantTotal(contrat.getMontantTotal());
-// recopier ici les autres attributs modifiables du contrat (Atelier 2),
-// sans toucher à l'identifiant ni à la collection de paiements
+        existant.setValide(contrat.isValide());
+        existant.getPaiements().clear();
+        if (contrat.getPaiements() != null) {
+            contrat.getPaiements().forEach(paiement -> paiement.setContrat(existant));
+            existant.getPaiements().addAll(contrat.getPaiements());
+        }
+
         return contratRepository.save(existant);
     }
     @Override
