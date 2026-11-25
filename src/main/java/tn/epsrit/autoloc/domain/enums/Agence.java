@@ -25,11 +25,11 @@ public class Agence {
     String adresse;
     String telephone;
 
-    @JsonIgnoreProperties("agence")
+    @JsonIgnoreProperties(value = "agence", allowSetters = true)
     @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
     List<Employe> employes = new ArrayList<>();
 
-    @JsonIgnoreProperties("agence")
+    @JsonIgnoreProperties(value = "agence", allowSetters = true)
     @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
     List<Vehicule> vehicules = new ArrayList<>();
 }

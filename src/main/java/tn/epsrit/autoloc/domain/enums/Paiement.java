@@ -23,7 +23,7 @@ public class Paiement {
     LocalDate datePaiement;
     tn.epsrit.autoloc.domain.enums.ModelPaiement modelPaiement;
 
-    @JsonIgnoreProperties({"paiements","reservation"})
+    @JsonIgnoreProperties(value = {"paiements","reservation"}, allowSetters = true)
     @ManyToOne
     Contrat contrat;
 }

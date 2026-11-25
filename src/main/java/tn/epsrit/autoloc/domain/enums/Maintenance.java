@@ -21,7 +21,7 @@ public class Maintenance {
     LocalDate dateFin;
     String description;
 
-    @JsonIgnoreProperties({"maintenances","reservations","equipements"})
+    @JsonIgnoreProperties(value = {"maintenances","reservations","equipements"}, allowSetters = true)
     @ManyToOne
     Vehicule vehicule;
 }

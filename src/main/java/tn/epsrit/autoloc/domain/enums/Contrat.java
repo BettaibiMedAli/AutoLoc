@@ -25,11 +25,11 @@ public class Contrat {
     BigDecimal montantTotal;
     boolean valide;
 
-    @JsonIgnoreProperties("contrat")
+    @JsonIgnoreProperties(value = "contrat", allowSetters = true)
     @OneToOne(mappedBy = "contrat")
     Reservation reservation;
 
-    @JsonIgnoreProperties("contrat")
+    @JsonIgnoreProperties(value = "contrat", allowSetters = true)
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Paiement> paiements = new ArrayList<>();
 }

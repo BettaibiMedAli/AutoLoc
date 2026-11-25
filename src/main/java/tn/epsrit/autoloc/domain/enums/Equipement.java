@@ -20,7 +20,7 @@ public class Equipement {
     Long idEquipement;
     String libelle;
 
-    @JsonIgnoreProperties({"equipements","agence","reservations","maintenances"})
+    @JsonIgnoreProperties(value = {"equipements","agence","reservations","maintenances"}, allowSetters = true)
     @ManyToMany(mappedBy = "equipements")
     List<Vehicule> vehicules = new ArrayList<>();
 }

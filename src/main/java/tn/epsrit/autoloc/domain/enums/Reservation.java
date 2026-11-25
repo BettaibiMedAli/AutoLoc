@@ -30,7 +30,7 @@ public class Reservation {
     @ManyToOne
     Vehicule vehicule;
 
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties(value = "reservation", allowSetters = true)
     @OneToOne(cascade = CascadeType.ALL)
     Contrat contrat;
 }

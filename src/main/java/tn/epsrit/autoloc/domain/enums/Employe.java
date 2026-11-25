@@ -20,7 +20,7 @@ public class Employe {
     String prenom;
     tn.epsrit.autoloc.domain.enums.RoleEmploye roleEmploye;
 
-    @JsonIgnoreProperties({"employes","vehicules"})
+    @JsonIgnoreProperties(value = {"employes","vehicules"}, allowSetters = true)
     @ManyToOne
     Agence agence;
 }

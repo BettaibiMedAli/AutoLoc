@@ -27,7 +27,7 @@ public class Client {
     String numPermis;
     LocalDate dateInscription;
 
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties(value = "client", allowSetters = true)
     @OneToMany(mappedBy = "client")
     List<Reservation> reservations = new ArrayList<>();
 }

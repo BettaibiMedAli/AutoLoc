@@ -32,15 +32,15 @@ public class Vehicule {
     @ManyToOne
     Agence agence;
 
-    @JsonIgnoreProperties("vehicule")
+    @JsonIgnoreProperties(value = "vehicule", allowSetters = true)
     @OneToMany(mappedBy = "vehicule")
     List<Reservation> reservations = new ArrayList<>();
 
-    @JsonIgnoreProperties("vehicule")
+    @JsonIgnoreProperties(value = "vehicule", allowSetters = true)
     @OneToMany(mappedBy = "vehicule", cascade = CascadeType.ALL)
     List<Maintenance> maintenances = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties("vehicule")
+    @JsonIgnoreProperties(value = "vehicule", allowSetters = true)
     List<Equipement> equipements = new ArrayList<>();
 }
