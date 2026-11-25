@@ -1,5 +1,4 @@
-package tn.esprit.autoloc.web.controller;
-
+package tn.epsrit.autoloc.web.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

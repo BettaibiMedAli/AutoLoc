@@ -26,7 +26,7 @@ public class Reservation {
     private Client client;
 
     @ManyToOne
-    tn.esprit.autoloc.domain.Vehicule vehicule;
+    Vehicule vehicule;
 
     @OneToOne(cascade = CascadeType.ALL)
     Contrat contrat;

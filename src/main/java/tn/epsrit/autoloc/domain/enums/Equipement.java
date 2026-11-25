@@ -21,5 +21,5 @@ public class Equipement {
     String libelle;
 
     @ManyToMany(mappedBy = "equipements")
-    List<tn.esprit.autoloc.domain.Vehicule> vehicules = new ArrayList<>();
+    List<Vehicule> vehicules = new ArrayList<>();
 }

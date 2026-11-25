@@ -22,5 +22,5 @@ public class Maintenance {
     String description;
 
     @ManyToOne
-    tn.esprit.autoloc.domain.Vehicule vehicule;
+    Vehicule vehicule;
 }
