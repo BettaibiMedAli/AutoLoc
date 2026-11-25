@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +25,11 @@ public class Agence {
     String adresse;
     String telephone;
 
+    @JsonIgnoreProperties("agence")
     @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
     List<Employe> employes = new ArrayList<>();
 
+    @JsonIgnoreProperties("agence")
     @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
     List<Vehicule> vehicules = new ArrayList<>();
 }

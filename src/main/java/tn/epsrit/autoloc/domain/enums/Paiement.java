@@ -1,5 +1,6 @@
 package tn.epsrit.autoloc.domain.enums;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class Paiement {
     LocalDate datePaiement;
     tn.epsrit.autoloc.domain.enums.ModelPaiement modelPaiement;
 
+    @JsonIgnoreProperties({"paiements","reservation"})
     @ManyToOne
     Contrat contrat;
 }

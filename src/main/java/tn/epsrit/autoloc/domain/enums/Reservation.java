@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDate;
 
 @Entity
@@ -22,12 +22,15 @@ public class Reservation {
     LocalDate dateFin;
     tn.epsrit.autoloc.domain.enums.StatutReservation statut;
 
+    @JsonIgnoreProperties("reservations")
     @ManyToOne
     private Client client;
 
+    @JsonIgnoreProperties({"reservations","maintenances","equipements"})
     @ManyToOne
     Vehicule vehicule;
 
+    @JsonIgnoreProperties("reservation")
     @OneToOne(cascade = CascadeType.ALL)
     Contrat contrat;
 }

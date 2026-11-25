@@ -1,5 +1,6 @@
 package tn.epsrit.autoloc.domain.enums;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +25,11 @@ public class Contrat {
     BigDecimal montantTotal;
     boolean valide;
 
+    @JsonIgnoreProperties("contrat")
     @OneToOne(mappedBy = "contrat")
     Reservation reservation;
 
+    @JsonIgnoreProperties("contrat")
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Paiement> paiements = new ArrayList<>();
 }

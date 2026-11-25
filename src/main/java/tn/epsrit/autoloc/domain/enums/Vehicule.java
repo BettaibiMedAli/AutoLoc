@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "vehicule")
@@ -27,15 +28,19 @@ public class Vehicule {
     private BigDecimal tarifJournalier;
     private StatutReservation statut;
 
+    @JsonIgnoreProperties({"employes","vehicules"})
     @ManyToOne
     Agence agence;
 
+    @JsonIgnoreProperties("vehicule")
     @OneToMany(mappedBy = "vehicule")
     List<Reservation> reservations = new ArrayList<>();
 
+    @JsonIgnoreProperties("vehicule")
     @OneToMany(mappedBy = "vehicule", cascade = CascadeType.ALL)
     List<Maintenance> maintenances = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.PERSIST)
+    @JsonIgnoreProperties("vehicule")
     List<Equipement> equipements = new ArrayList<>();
 }

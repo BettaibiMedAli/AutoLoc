@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Getter
@@ -19,6 +20,7 @@ public class Employe {
     String prenom;
     tn.epsrit.autoloc.domain.enums.RoleEmploye roleEmploye;
 
+    @JsonIgnoreProperties({"employes","vehicules"})
     @ManyToOne
     Agence agence;
 }
